@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	
+	<!-- spring start -->
+	<!-- ### 添加配置信息 
+		文件位置1：classpath:applicationContext.xml ,表示src目录下(WEB-INF/classes/)
+		文件位置2：applicationContext.xml ,表示WEB-INF目录
+	-->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<!-- ###配置监听器 -->
+	<listener>
+		<listener-class>com.itheima.spring.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<!-- spring end -->
+	
+
+	<!-- 编码过滤器 start -->
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.itheima.ebook.web.filter.EncodingFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 编码过滤器 end -->
+
+<servlet>
+    <servlet-name>VerifyCodeServlet</servlet-name>
+    <servlet-class>com.itheima.ebook.web.servlet.VerifyCodeServlet</servlet-class>
+  </servlet>
+ 
+  <servlet>
+    <servlet-name>UIServlet</servlet-name>
+    <servlet-class>com.itheima.ebook.web.servlet.UIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CategoryServlet</servlet-name>
+    <servlet-class>com.itheima.ebook.web.servlet.CategoryServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.itheima.ebook.web.servlet.UserServlet</servlet-class>
+  </servlet>
+ <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.itheima.servlet.RegisterServlet</servlet-class>
+  </servlet>
+ <servlet>
+    <servlet-name>autoClock</servlet-name>
+    <servlet-class>com.itheima.ebook.web.ext.AutoClock</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>BookServlet</servlet-name>
+    <servlet-class>com.itheima.ebook.web.servlet.BookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OrderServlet</servlet-name>
+    <servlet-class>com.itheima.ebook.web.servlet.OrderServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>payServlet</servlet-name>
+    <servlet-class>com.itheima.ebook.web.servlet.PayServlet</servlet-class>
+  </servlet>
+
+
+  
+  
+  <servlet-mapping>
+    <servlet-name>UIServlet</servlet-name>
+    <url-pattern>/admin/UIServlet</url-pattern>
+    <url-pattern>/user/UIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CategoryServlet</servlet-name>
+    <url-pattern>/admin/CategoryServlet</url-pattern>
+    <url-pattern>/user/CategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/admin/UserServlet</url-pattern>
+    <url-pattern>/user/UserServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>VerifyCodeServlet</servlet-name>
+    <url-pattern>/user/VerifyCodeServlet</url-pattern>
+  </servlet-mapping>	
+  <servlet-mapping>
+    <servlet-name>autoClock</servlet-name>
+    <url-pattern>/autoClock</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BookServlet</servlet-name>
+    <url-pattern>/admin/BookServlet</url-pattern>
+    <url-pattern>/user/BookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderServlet</servlet-name>
+    <url-pattern>/admin/OrderServlet</url-pattern>
+    <url-pattern>/user/OrderServlet</url-pattern>
+  </servlet-mapping>	
+  <servlet-mapping>
+    <servlet-name>payServlet</servlet-name>
+    <url-pattern>/payServlet</url-pattern>
+  </servlet-mapping>	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
